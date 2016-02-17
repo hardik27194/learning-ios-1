@@ -12,12 +12,12 @@ class ViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
 
-    let questions: [String] = ["From what is cognac made?",
-                               "What is 7+7?",
-                               "What is the capital of Vermont?"]
-    let answers: [String] = ["Grapes",
-                             "14",
-                             "Montpelier"]
+    let questions: [String] = ["你是谁？",
+                               "你从哪里来？",
+                               "你要到哪去？"]
+    let answers: [String] = ["贫僧法号三藏",
+                             "从东土大唐而来",
+                             "去往西天拜佛求经"]
 
     var currentQuestionIndex: Int = 0
 
