@@ -140,3 +140,10 @@ case 10:
 default:
     print("Greetings, people of the future! What's new in 10.\(osxVersion)?")
 }
+
+// range
+// 1...10 ==> 1, 2, 3, ..., 8, 9, 10
+// 1..<10 ==> 1, 2, 3, ..., 8, 9
+for var i in 1...10 {
+    print(i)
+}
