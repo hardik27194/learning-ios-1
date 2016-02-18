@@ -34,6 +34,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         return nf
     }()
 
+    override func viewDidLoad() {
+        celsiusLabel.text = "???"
+    }
+
     func updateCelsiusLabel() {
         if let value = celsiusValue {
             celsiusLabel.text = numberFormatter.stringFromNumber(value)
@@ -57,13 +61,23 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(textField: UITextField,
             shouldChangeCharactersInRange range: NSRange,
             replacementString string: String) -> Bool {
-        let existingTextHasDecimalSeparator = textField.text?.rangeOfString(".")
-        let replacementTextHasDecimalSeparator = string.rangeOfString(".")
+
+        // 1. only digits and . can be accepted.
+        // 2. only one . can be accepted.
+        let decimalSeparator = "."
+        let existingTextHasDecimalSeparator = textField.text?.rangeOfString(decimalSeparator)
+        let replacementTextHasDecimalSeparator = string.rangeOfString(decimalSeparator)
 
         if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
             return false
         } else {
-            return true;
+            let setOfDecimalDigits = NSCharacterSet.decimalDigitCharacterSet()
+            let setOfDecimalSeparator = NSCharacterSet(charactersInString: decimalSeparator)
+
+            let isDigit = string.stringByTrimmingCharactersInSet(setOfDecimalDigits).isEmpty
+            let isDecimalSeparator = string.stringByTrimmingCharactersInSet(setOfDecimalSeparator).isEmpty
+
+            return isDigit || isDecimalSeparator
         }
     }
 }
