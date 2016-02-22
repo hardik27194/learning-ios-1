@@ -35,7 +35,61 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }()
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         celsiusLabel.text = "???"
+        print("ConversionViewController loaded its view.")
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        if isAM() {
+            view.backgroundColor = UIColor.lightGrayColor()
+        } else {
+            view.backgroundColor = UIColor.darkGrayColor()
+        }
+    }
+
+    func isAM() -> Bool {
+        let now = NSDate()
+        return now.compare(startOfTodaysMorning()) == NSComparisonResult.OrderedDescending
+            && now.compare(endOfTodaysMorning()) == NSComparisonResult.OrderedAscending
+    }
+
+    func startOfTodaysMorning() -> NSDate {
+        let dateComponents = getTodaysDateComponents()
+        let year = dateComponents.year
+        let month = dateComponents.month
+        let day = dateComponents.day
+        return createDate(year, month: month, day: day, hour: 0, minute: 0, second: 0)
+    }
+
+    func endOfTodaysMorning() -> NSDate {
+        let dateComponents = getTodaysDateComponents()
+        let year = dateComponents.year
+        let month = dateComponents.month
+        let day = dateComponents.day
+        return createDate(year, month: month, day: day, hour: 16, minute: 2, second: 0)
+    }
+
+    func getTodaysDateComponents() -> NSDateComponents {
+        let today = NSDate()
+        let unitFlags: NSCalendarUnit = [.Year, .Month, .Day, .Hour, .Minute, .Second]
+        let dateComponents = NSCalendar.currentCalendar().components(unitFlags, fromDate: today)
+        return dateComponents
+    }
+
+    func createDate(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) -> NSDate {
+        let dateComponents = NSDateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        dateComponents.second = second
+
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        let date = calendar!.dateFromComponents(dateComponents)
+        return date!
     }
 
     func updateCelsiusLabel() {
