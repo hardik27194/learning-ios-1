@@ -42,10 +42,12 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
         if isAM() {
-            view.backgroundColor = UIColor.lightGrayColor()
+            view.backgroundColor = UIColor.whiteColor()
         } else {
-            view.backgroundColor = UIColor.darkGrayColor()
+            view.backgroundColor = UIColor.lightGrayColor()
         }
     }
 
@@ -68,7 +70,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         let year = dateComponents.year
         let month = dateComponents.month
         let day = dateComponents.day
-        return createDate(year, month: month, day: day, hour: 16, minute: 2, second: 0)
+        return createDate(year, month: month, day: day, hour: 11, minute: 59, second: 0)
     }
 
     func getTodaysDateComponents() -> NSDateComponents {
