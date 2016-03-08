@@ -14,7 +14,10 @@ class WKWebViewController: UIViewController {
     
     override func viewDidLoad() {
         webView = WKWebView(frame: view.bounds)
-        webView.loadRequest(NSURLRequest(URL: NSURL(string: "https://www.bignerdranch.com")!))
         view.addSubview(webView)
+        
+        let url = NSURL(string: "https://www.bignerdranch.com")
+        let request = NSURLRequest(URL: url!)
+        webView.loadRequest(request)
     }
 }
