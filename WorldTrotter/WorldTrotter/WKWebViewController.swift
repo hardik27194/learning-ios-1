@@ -16,7 +16,7 @@ class WKWebViewController: UIViewController {
         webView = WKWebView(frame: view.bounds)
         view.addSubview(webView)
         
-        let url = NSURL(string: "https://www.bignerdranch.com")
+        let url = NSURL(string: "http://www.jianshu.com")
         let request = NSURLRequest(URL: url!)
         webView.loadRequest(request)
     }
