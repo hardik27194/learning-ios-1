@@ -42,7 +42,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-H8-hdD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-H8-hdD">
                                 <rect key="frame" x="176" y="222" width="250" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="BEw-cD-0sF"/>
@@ -68,7 +68,7 @@
                             <constraint firstItem="gsv-Go-QX6" firstAttribute="centerX" secondItem="BTw-wJ-jRj" secondAttribute="centerX" id="ZsL-tg-W69"/>
                             <constraint firstItem="DuR-Xw-F56" firstAttribute="centerX" secondItem="BTw-wJ-jRj" secondAttribute="centerX" id="juX-aZ-kT9"/>
                             <constraint firstItem="Goe-H8-hdD" firstAttribute="top" secondItem="gsv-Go-QX6" secondAttribute="bottom" constant="8" id="lqg-Ck-ViP"/>
-                            <constraint firstItem="Goe-H8-hdD" firstAttribute="centerX" secondItem="BTw-wJ-jRj" secondAttribute="centerX" id="num-Mq-De9"/>
+                            <constraint firstItem="Goe-H8-hdD" firstAttribute="centerX" secondItem="BTw-wJ-jRj" secondAttribute="centerX" constant="1" id="num-Mq-De9"/>
                             <constraint firstItem="q2u-WW-KE2" firstAttribute="centerX" secondItem="BTw-wJ-jRj" secondAttribute="centerX" id="o8x-BB-boX"/>
                             <constraint firstItem="q2u-WW-KE2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zfm-G9-iQd"/>
                         </constraints>
@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Web" id="bHc-f9-RiB"/>
+                    <tabBarItem key="tabBarItem" title="Web" image="WebIcon" id="bHc-f9-RiB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXX-oN-s1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,5 +143,6 @@
     <resources>
         <image name="ConvertIcon" width="49" height="33"/>
         <image name="MapIcon" width="49" height="33"/>
+        <image name="WebIcon" width="29" height="29"/>
     </resources>
 </document>
