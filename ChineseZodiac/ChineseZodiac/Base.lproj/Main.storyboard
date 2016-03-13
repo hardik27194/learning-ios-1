@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChineseZodiac" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia2-0x-nST"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lwd-4g-83v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出生年份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS7-XL-AVm">
+                                <rect key="frame" x="266" y="50" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Bf-Yx-OvL">
+                                <rect key="frame" x="240.5" y="90" width="119" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2ca-0v-sfm"/>
+                                    <constraint firstAttribute="width" constant="119" id="DEo-O0-wqf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLm-Nu-tKr">
+                                <rect key="frame" x="255" y="170" width="90" height="30"/>
+                                <state key="normal" title="显示生肖图像"/>
+                                <connections>
+                                    <action selector="showZodiac:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yy5-nQ-EUT"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ppa-be-3Il">
+                                <rect key="frame" x="172" y="220" width="256" height="256"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ppa-be-3Il" firstAttribute="centerX" secondItem="qS7-XL-AVm" secondAttribute="centerX" id="0uH-de-geb"/>
+                            <constraint firstItem="qS7-XL-AVm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="50" id="8vP-BN-vn7"/>
+                            <constraint firstItem="2Bf-Yx-OvL" firstAttribute="top" secondItem="qS7-XL-AVm" secondAttribute="bottom" constant="19" id="DWR-T1-ebe"/>
+                            <constraint firstItem="2Bf-Yx-OvL" firstAttribute="centerX" secondItem="qS7-XL-AVm" secondAttribute="centerX" id="GXM-Dw-9yF"/>
+                            <constraint firstItem="2Bf-Yx-OvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VPx-eJ-JNO"/>
+                            <constraint firstItem="2Bf-Yx-OvL" firstAttribute="centerX" secondItem="bLm-Nu-tKr" secondAttribute="centerX" id="VvX-DU-YOu"/>
+                            <constraint firstItem="qS7-XL-AVm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e7c-lj-JTd"/>
+                            <constraint firstItem="Ppa-be-3Il" firstAttribute="top" secondItem="bLm-Nu-tKr" secondAttribute="bottom" constant="20" id="hpJ-H2-Tnm"/>
+                            <constraint firstItem="2Bf-Yx-OvL" firstAttribute="top" secondItem="qS7-XL-AVm" secondAttribute="bottom" constant="19" id="iAj-cM-SHE"/>
+                            <constraint firstItem="bLm-Nu-tKr" firstAttribute="top" secondItem="2Bf-Yx-OvL" secondAttribute="bottom" constant="50" id="ozy-CB-qOj"/>
+                            <constraint firstItem="2Bf-Yx-OvL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="90" id="smk-3y-cgE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageOfZodiac" destination="Ppa-be-3Il" id="Mra-06-CaQ"/>
+                        <outlet property="yearOfBirth" destination="2Bf-Yx-OvL" id="0ag-ae-2R2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="394" y="340"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="0" width="256" height="256"/>
+    </resources>
+</document>
