@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     func getIndexOfZodiac(year: Int) -> Int {
         let numberOfZodiac = 12
         let offset = 1984 % numberOfZodiac  // 1984 is the year of the rat
-        return (year - offset) % numberOfZodiac
+        return (year - offset + numberOfZodiac) % numberOfZodiac
     }
 
 }
