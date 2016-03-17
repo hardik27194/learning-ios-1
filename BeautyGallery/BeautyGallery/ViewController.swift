@@ -39,9 +39,5 @@ class ViewController: UIViewController {
         let index = beautyPicker.selectedRowInComponent(0)
         return imageName[index]
     }
-    
-    @IBAction func close(segue: UIStoryboardSegue) {
-        print("closed")
-    }
 }
 
