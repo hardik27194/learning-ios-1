@@ -43,4 +43,24 @@ class GalleryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func facebookTapped(sender: AnyObject) {
+        shareTo(ImageShare.facebook)
+    }
+    
+    @IBAction func twitterTapped(sender: AnyObject) {
+        shareTo(ImageShare.twitter)
+    }
+    
+    @IBAction func sinaWeiboTapped(sender: AnyObject) {
+        shareTo(ImageShare.sinaWeibo)
+    }
+    
+    
+    func shareTo(serviceType: String) {
+        if let image = beautyImage.image {
+            let imageShare = ImageShare()
+            imageShare.share(self, image: image, serviceType: serviceType)
+        }
+    }
 }

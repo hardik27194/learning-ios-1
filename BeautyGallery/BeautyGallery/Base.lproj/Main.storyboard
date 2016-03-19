@@ -79,14 +79,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S7-7y-329">
                                 <rect key="frame" x="175" y="481" width="50" height="50"/>
                                 <state key="normal" image="facebook"/>
+                                <connections>
+                                    <action selector="facebookTapped:" destination="oV9-vm-uRR" eventType="touchUpInside" id="dNO-XQ-tcH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-vY-KPV">
                                 <rect key="frame" x="275" y="481" width="50" height="50"/>
                                 <state key="normal" image="twitter"/>
+                                <connections>
+                                    <action selector="twitterTapped:" destination="oV9-vm-uRR" eventType="touchUpInside" id="qTj-Cr-G27"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwH-K4-Z5T">
                                 <rect key="frame" x="375" y="481" width="50" height="50"/>
                                 <state key="normal" image="weibo"/>
+                                <connections>
+                                    <action selector="sinaWeiboTapped:" destination="oV9-vm-uRR" eventType="touchUpInside" id="t5D-vw-t6a"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -135,7 +144,7 @@
         <!--韩国-->
         <scene sceneID="Pss-fb-YQy">
             <objects>
-                <viewController id="ubE-pG-U1x" sceneMemberID="viewController">
+                <viewController id="ubE-pG-U1x" customClass="KoreanViewController" customModule="BeautyGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zww-WZ-RwS"/>
                         <viewControllerLayoutGuide type="bottom" id="UZz-0L-GZs"/>
@@ -150,14 +159,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4KG-9Z-WJZ">
                                 <rect key="frame" x="175" y="481" width="50" height="50"/>
                                 <state key="normal" image="facebook"/>
+                                <connections>
+                                    <action selector="facebookTapped:" destination="ubE-pG-U1x" eventType="touchUpInside" id="bXr-AN-6fv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgw-Ib-4DO">
                                 <rect key="frame" x="275" y="481" width="50" height="50"/>
                                 <state key="normal" image="twitter"/>
+                                <connections>
+                                    <action selector="twitterTapped:" destination="ubE-pG-U1x" eventType="touchUpInside" id="GLj-Kd-PdR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfV-lX-wSt">
                                 <rect key="frame" x="375" y="481" width="50" height="50"/>
                                 <state key="normal" image="weibo"/>
+                                <connections>
+                                    <action selector="sinaWeiboTapped:" destination="ubE-pG-U1x" eventType="touchUpInside" id="eQ4-W8-7IR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,6 +194,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="韩国" image="torii" id="BIr-Yw-Kic"/>
+                    <connections>
+                        <outlet property="beautyImage" destination="RMb-PC-x6z" id="Mw9-pz-cyt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoK-iQ-sJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,7 +224,7 @@
         <!--日本-->
         <scene sceneID="JC9-e1-Y9j">
             <objects>
-                <viewController id="sBH-fS-b8m" sceneMemberID="viewController">
+                <viewController id="sBH-fS-b8m" customClass="JapaneseViewController" customModule="BeautyGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PdW-iM-g1J"/>
                         <viewControllerLayoutGuide type="bottom" id="ttc-WD-gk6"/>
@@ -218,14 +239,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSr-Tx-dzC">
                                 <rect key="frame" x="175" y="481" width="50" height="50"/>
                                 <state key="normal" image="facebook"/>
+                                <connections>
+                                    <action selector="facebookTapped:" destination="sBH-fS-b8m" eventType="touchUpInside" id="TMy-bV-0Mt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfV-ki-90V">
                                 <rect key="frame" x="275" y="481" width="50" height="50"/>
                                 <state key="normal" image="twitter"/>
+                                <connections>
+                                    <action selector="twitterTapped:" destination="sBH-fS-b8m" eventType="touchUpInside" id="2lJ-6v-wcE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBy-I1-QSN">
                                 <rect key="frame" x="375" y="481" width="50" height="50"/>
                                 <state key="normal" image="weibo"/>
+                                <connections>
+                                    <action selector="sinaWeiboTapped:" destination="sBH-fS-b8m" eventType="touchUpInside" id="x1c-gT-qTG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,6 +274,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="日本" image="geisha" id="igU-lE-KPf"/>
+                    <connections>
+                        <outlet property="beautyImage" destination="rJz-LW-Iqr" id="key-Qf-9o7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvl-PD-Mqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,9 @@
 		DF2E13511C9B0EC300A462C9 /* BeautyGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E13501C9B0EC300A462C9 /* BeautyGalleryTests.swift */; };
 		DF2E135C1C9B129000A462C9 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E135B1C9B129000A462C9 /* ViewControllerExtension.swift */; };
 		DF2E135E1C9B154000A462C9 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E135D1C9B154000A462C9 /* GalleryViewController.swift */; };
+		DFFCB8411C9D5D7D000F01B3 /* ImageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFCB8401C9D5D7D000F01B3 /* ImageShare.swift */; };
+		DFFCB8431C9D69B6000F01B3 /* JapaneseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFCB8421C9D69B6000F01B3 /* JapaneseViewController.swift */; };
+		DFFCB8451C9D6B04000F01B3 /* KoreanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFCB8441C9D6B04000F01B3 /* KoreanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		DF2E13521C9B0EC300A462C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF2E135B1C9B129000A462C9 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		DF2E135D1C9B154000A462C9 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		DFFCB8401C9D5D7D000F01B3 /* ImageShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageShare.swift; sourceTree = "<group>"; };
+		DFFCB8421C9D69B6000F01B3 /* JapaneseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseViewController.swift; sourceTree = "<group>"; };
+		DFFCB8441C9D6B04000F01B3 /* KoreanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KoreanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,9 @@
 				DF2E133D1C9B0EC300A462C9 /* ViewController.swift */,
 				DF2E135B1C9B129000A462C9 /* ViewControllerExtension.swift */,
 				DF2E135D1C9B154000A462C9 /* GalleryViewController.swift */,
+				DFFCB8421C9D69B6000F01B3 /* JapaneseViewController.swift */,
+				DFFCB8441C9D6B04000F01B3 /* KoreanViewController.swift */,
+				DFFCB8401C9D5D7D000F01B3 /* ImageShare.swift */,
 				DF2E133F1C9B0EC300A462C9 /* Main.storyboard */,
 				DF2E13421C9B0EC300A462C9 /* Assets.xcassets */,
 				DF2E13441C9B0EC300A462C9 /* LaunchScreen.storyboard */,
@@ -206,6 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF2E133E1C9B0EC300A462C9 /* ViewController.swift in Sources */,
+				DFFCB8431C9D69B6000F01B3 /* JapaneseViewController.swift in Sources */,
+				DFFCB8451C9D6B04000F01B3 /* KoreanViewController.swift in Sources */,
+				DFFCB8411C9D5D7D000F01B3 /* ImageShare.swift in Sources */,
 				DF2E135E1C9B154000A462C9 /* GalleryViewController.swift in Sources */,
 				DF2E133C1C9B0EC300A462C9 /* AppDelegate.swift in Sources */,
 				DF2E135C1C9B129000A462C9 /* ViewControllerExtension.swift in Sources */,
@@ -396,6 +408,7 @@
 				DF2E13571C9B0EC300A462C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF2E13581C9B0EC300A462C9 /* Build configuration list for PBXNativeTarget "BeautyGalleryTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +417,7 @@
 				DF2E135A1C9B0EC300A462C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
