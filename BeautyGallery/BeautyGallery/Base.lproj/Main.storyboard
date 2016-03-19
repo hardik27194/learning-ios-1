@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pTl-So-xEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="csz-lj-5bR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264" y="1013"/>
+            <point key="canvasLocation" x="2076" y="1013"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="kEF-N0-Z1C">
@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="fanbingbing" translatesAutoresizingMaskIntoConstraints="NO" id="Iti-7s-ION">
-                                <rect key="frame" x="140" y="20" width="320" height="568"/>
+                                <rect key="frame" x="140" y="64" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejf-UD-yZ9">
                                 <rect key="frame" x="28" y="20" width="30" height="30"/>
@@ -90,12 +90,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxY-lf-sBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Zd2-r3-Bo1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="989" y="353"/>
+            <point key="canvasLocation" x="2771" y="1013"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--中国-->
         <scene sceneID="I0J-CL-I8E">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pTl-So-xEJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="中国" image="great_wall" id="7O8-Va-a7S"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fGJ-K0-a2C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -108,10 +109,92 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urv-k5-eXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1264" y="1013"/>
+        </scene>
+        <!--韩国-->
+        <scene sceneID="Pss-fb-YQy">
+            <objects>
+                <viewController id="ubE-pG-U1x" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zww-WZ-RwS"/>
+                        <viewControllerLayoutGuide type="bottom" id="UZz-0L-GZs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZWX-AC-RVB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="korean" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-PC-x6z">
+                                <rect key="frame" x="140" y="0.0" width="320" height="551"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RMb-PC-x6z" firstAttribute="top" secondItem="ZWX-AC-RVB" secondAttribute="top" id="Oi5-gR-Cc2"/>
+                            <constraint firstItem="RMb-PC-x6z" firstAttribute="bottom" secondItem="UZz-0L-GZs" secondAttribute="top" id="add-PW-K0g"/>
+                            <constraint firstItem="RMb-PC-x6z" firstAttribute="centerX" secondItem="ZWX-AC-RVB" secondAttribute="centerX" id="cvp-jc-biO"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="韩国" image="torii" id="BIr-Yw-Kic"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aoK-iQ-sJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1264" y="1806"/>
+        </scene>
+        <!--日本-->
+        <scene sceneID="7bg-DC-Csz">
+            <objects>
+                <viewController id="6l4-oI-KpP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nb8-fO-0cg"/>
+                        <viewControllerLayoutGuide type="bottom" id="mHR-kT-9UO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h3N-YR-TGA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="japanese" translatesAutoresizingMaskIntoConstraints="NO" id="Yz8-7R-0XB">
+                                <rect key="frame" x="140" y="0.0" width="320" height="551"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yz8-7R-0XB" firstAttribute="top" secondItem="h3N-YR-TGA" secondAttribute="top" id="7oR-Kb-G9g"/>
+                            <constraint firstItem="Yz8-7R-0XB" firstAttribute="centerX" secondItem="h3N-YR-TGA" secondAttribute="centerX" id="CYa-mN-pDo"/>
+                            <constraint firstItem="Yz8-7R-0XB" firstAttribute="bottom" secondItem="mHR-kT-9UO" secondAttribute="top" id="F2x-0w-GGo"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="日本" image="geisha" id="njJ-vC-ONB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6a-gF-A1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="452" y="1806"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RhZ-e4-t5v">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="csz-lj-5bR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ugz-rc-FKa">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pTl-So-xEJ" kind="relationship" relationship="viewControllers" id="CS7-2U-eMy"/>
+                        <segue destination="6l4-oI-KpP" kind="relationship" relationship="viewControllers" id="cUA-uo-hcR"/>
+                        <segue destination="ubE-pG-U1x" kind="relationship" relationship="viewControllers" id="xH7-0f-fbO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qpZ-J6-i5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="452" y="1013"/>
         </scene>
     </scenes>
     <resources>
         <image name="fanbingbing" width="320" height="568"/>
+        <image name="geisha" width="25" height="25"/>
+        <image name="great_wall" width="25" height="25"/>
+        <image name="japanese" width="320" height="568"/>
+        <image name="korean" width="320" height="568"/>
+        <image name="torii" width="25" height="25"/>
     </resources>
 </document>
