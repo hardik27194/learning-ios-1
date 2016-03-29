@@ -10,6 +10,8 @@ import UIKit
 
 var todos = [TodoModel]()
 
+var filteredTodos = [TodoModel]()
+
 func dateFromString(dateStr: String) -> NSDate? {
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -17,7 +19,7 @@ func dateFromString(dateStr: String) -> NSDate? {
     return date
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,7 +42,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        if tableView == searchDisplayController?.searchResultsTableView {
+            return filteredTodos.count
+        } else {
+            return todos.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -48,8 +54,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let image = cell?.viewWithTag(101) as! UIImageView
         let title = cell?.viewWithTag(102)as! UILabel
         let date = cell?.viewWithTag(103) as! UILabel
-        
-        let todo = todos[indexPath.row]
+
+        var todo: TodoModel
+        if tableView == searchDisplayController?.searchResultsTableView {
+            todo = filteredTodos[indexPath.row]
+        } else {
+            todo = todos[indexPath.row]
+        }
+
         image.image = UIImage(named: todo.image)
         title.text = todo.title
         date.text = stringFromDate(todo.date)
@@ -70,6 +82,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             todos.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
     }
 
     override func setEditing(editing: Bool, animated: Bool) {
@@ -99,6 +115,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 detailViewController.todo = todos[index.row]
             }
         }
+    }
+
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+        filteredTodos = todos.filter(){$0.title.rangeOfString(searchString!) != nil}
+        return true
     }
 }
 

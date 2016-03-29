@@ -56,10 +56,20 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="PBi-2w-iX3"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8HC-jn-Bqn">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Yme-86-IN0"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8HC-jn-Bqn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Hi4-tc-YYF"/>
+                            <constraint firstItem="8HC-jn-Bqn" firstAttribute="trailing" secondItem="2q7-wW-jYz" secondAttribute="trailing" id="L1V-WS-Wn5"/>
                             <constraint firstItem="2q7-wW-jYz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-44" id="Mr4-Ys-USY"/>
+                            <constraint firstItem="8HC-jn-Bqn" firstAttribute="leading" secondItem="2q7-wW-jYz" secondAttribute="leading" id="TDb-8Y-dYc"/>
                             <constraint firstItem="2q7-wW-jYz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="hnV-3g-9Gu"/>
                             <constraint firstAttribute="bottom" secondItem="2q7-wW-jYz" secondAttribute="bottom" constant="20" id="qaq-ku-qYJ"/>
                             <constraint firstItem="2q7-wW-jYz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="zUl-PB-YI1"/>
@@ -73,12 +83,22 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchDisplayController" destination="Yoc-uB-gr9" id="hQi-su-hJe"/>
                         <outlet property="tableView" destination="2q7-wW-jYz" id="JRD-3M-GeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Yoc-uB-gr9">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Oog-jA-ixV"/>
+                        <outlet property="searchBar" destination="8HC-jn-Bqn" id="yg1-br-O3K"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="szH-iN-5hQ"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="5iP-2d-fZu"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="nOG-ww-Mqa"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1192" y="368"/>
+            <point key="canvasLocation" x="1198" y="368"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Kxh-y6-Zt5">
