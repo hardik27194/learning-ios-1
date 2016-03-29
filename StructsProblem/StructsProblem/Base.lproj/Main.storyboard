@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StructsProblem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ef1-Xi-W6z"/>
+                        <viewControllerLayoutGuide type="bottom" id="dZf-P0-Rul"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="Ifo-ti-8qi">
-                                <rect key="frame" x="20" y="20" width="130" height="254"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ifo-ti-8qi">
+                                <rect key="frame" x="20" y="20" width="270" height="280"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="LhW-x4-Jre">
-                                <rect key="frame" x="170" y="20" width="130" height="254"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhW-x4-Jre">
+                                <rect key="frame" x="310" y="20" width="270" height="280"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="PMg-UJ-9Ii">
-                                <rect key="frame" x="20" y="294" width="280" height="254"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMg-UJ-9Ii">
+                                <rect key="frame" x="20" y="320" width="560" height="280"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Ifo-ti-8qi" secondAttribute="leading" id="0gB-UK-QjI"/>
+                            <constraint firstItem="Ifo-ti-8qi" firstAttribute="top" secondItem="Ef1-Xi-W6z" secondAttribute="bottom" id="23w-9U-0BF"/>
+                            <constraint firstItem="Ifo-ti-8qi" firstAttribute="height" secondItem="LhW-x4-Jre" secondAttribute="height" id="4pN-I6-bAG"/>
+                            <constraint firstItem="PMg-UJ-9Ii" firstAttribute="top" secondItem="Ifo-ti-8qi" secondAttribute="bottom" constant="20" id="5L4-gx-eeU"/>
+                            <constraint firstItem="Ifo-ti-8qi" firstAttribute="width" secondItem="LhW-x4-Jre" secondAttribute="width" id="AvH-0G-iC7"/>
+                            <constraint firstItem="LhW-x4-Jre" firstAttribute="leading" secondItem="Ifo-ti-8qi" secondAttribute="trailing" constant="20" id="CyI-dP-26E"/>
+                            <constraint firstItem="dZf-P0-Rul" firstAttribute="top" secondItem="PMg-UJ-9Ii" secondAttribute="bottom" id="OfR-Up-AFx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PMg-UJ-9Ii" secondAttribute="trailing" id="Sm7-Fo-6vN"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PMg-UJ-9Ii" secondAttribute="leading" id="WXq-wA-itA"/>
+                            <constraint firstItem="PMg-UJ-9Ii" firstAttribute="height" secondItem="Ifo-ti-8qi" secondAttribute="height" id="apL-3K-d4K"/>
+                            <constraint firstItem="LhW-x4-Jre" firstAttribute="top" secondItem="Ef1-Xi-W6z" secondAttribute="bottom" id="bwQ-rY-Vl7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LhW-x4-Jre" secondAttribute="trailing" id="q3h-Ae-7i6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomView" destination="PMg-UJ-9Ii" id="Yy2-KY-tZI"/>
@@ -39,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="297"/>
+            <point key="canvasLocation" x="243.75" y="313.73239436619718"/>
         </scene>
     </scenes>
 </document>
