@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4372FFBF1CAA59F30083D371 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372FFBE1CAA59F30083D371 /* DetailViewController.swift */; };
 		DFA168471CA05B0D00A92297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA168461CA05B0D00A92297 /* AppDelegate.swift */; };
 		DFA168491CA05B0D00A92297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA168481CA05B0D00A92297 /* ViewController.swift */; };
 		DFA1684C1CA05B0D00A92297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFA1684A1CA05B0D00A92297 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4372FFBE1CAA59F30083D371 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DFA168431CA05B0D00A92297 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA168461CA05B0D00A92297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFA168481CA05B0D00A92297 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				DFA168461CA05B0D00A92297 /* AppDelegate.swift */,
 				DFA168481CA05B0D00A92297 /* ViewController.swift */,
 				DFA168661CA05D1300A92297 /* TodoModel.swift */,
+				4372FFBE1CAA59F30083D371 /* DetailViewController.swift */,
 				DFA1684A1CA05B0D00A92297 /* Main.storyboard */,
 				DFA1684D1CA05B0D00A92297 /* Assets.xcassets */,
 				DFA1684F1CA05B0D00A92297 /* LaunchScreen.storyboard */,
@@ -205,6 +208,7 @@
 				DFA168671CA05D1300A92297 /* TodoModel.swift in Sources */,
 				DFA168491CA05B0D00A92297 /* ViewController.swift in Sources */,
 				DFA168471CA05B0D00A92297 /* AppDelegate.swift in Sources */,
+				4372FFBF1CAA59F30083D371 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +396,7 @@
 				DFA168621CA05B0D00A92297 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFA168631CA05B0D00A92297 /* Build configuration list for PBXNativeTarget "TodoTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +405,7 @@
 				DFA168651CA05B0D00A92297 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

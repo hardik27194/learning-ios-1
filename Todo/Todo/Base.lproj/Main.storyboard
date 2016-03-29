@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zan-5w-740" id="h4Y-5h-bb5">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="101" contentMode="center" fixedFrame="YES" image="child-selected" translatesAutoresizingMaskIntoConstraints="NO" id="99E-cR-14q">
@@ -75,12 +75,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="368"/>
+            <point key="canvasLocation" x="1192" y="368"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Kxh-y6-Zt5">
             <objects>
-                <viewController id="jSV-cp-kQw" sceneMemberID="viewController">
+                <viewController id="jSV-cp-kQw" customClass="DetailViewController" customModule="Todo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PK2-Sb-GTT"/>
                         <viewControllerLayoutGuide type="bottom" id="KX8-HN-JjA"/>
@@ -95,6 +95,10 @@
                                     <constraint firstAttribute="width" secondItem="GFx-R4-f3Z" secondAttribute="height" multiplier="1:1" id="U0i-0X-e1M"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="phone"/>
+                                <state key="selected" image="phone-selected"/>
+                                <connections>
+                                    <action selector="phoneTapped:" destination="jSV-cp-kQw" eventType="touchUpInside" id="Mdj-qv-tF2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-ov-SEH">
                                 <rect key="frame" x="155" y="84" width="50" height="50"/>
@@ -102,6 +106,10 @@
                                     <constraint firstAttribute="width" secondItem="7AW-ov-SEH" secondAttribute="height" multiplier="1:1" id="Umt-sT-brS"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="child"/>
+                                <state key="selected" image="child-selected"/>
+                                <connections>
+                                    <action selector="childTapped:" destination="jSV-cp-kQw" eventType="touchUpInside" id="oa5-pf-VOu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEe-yu-AwC">
                                 <rect key="frame" x="315" y="84" width="50" height="50"/>
@@ -109,6 +117,10 @@
                                     <constraint firstAttribute="width" secondItem="SEe-yu-AwC" secondAttribute="height" multiplier="1:1" id="m7h-m5-5Ax"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="shopping-cart"/>
+                                <state key="selected" image="shopping-cart-selected"/>
+                                <connections>
+                                    <action selector="shoppingCartTapped:" destination="jSV-cp-kQw" eventType="touchUpInside" id="rpW-Qq-hGm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxs-c3-XTb">
                                 <rect key="frame" x="395" y="84" width="50" height="50"/>
@@ -116,6 +128,10 @@
                                     <constraint firstAttribute="width" secondItem="Nxs-c3-XTb" secondAttribute="height" multiplier="1:1" id="2KV-gj-fqt"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="travel"/>
+                                <state key="selected" image="travel-selected"/>
+                                <connections>
+                                    <action selector="travelTapped:" destination="jSV-cp-kQw" eventType="touchUpInside" id="33c-RQ-tZn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todo事项" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pls-LV-7R0">
                                 <rect key="frame" x="20" y="164" width="73" height="21"/>
@@ -137,6 +153,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYa-HG-ilT">
                                 <rect key="frame" x="285" y="465" width="30" height="30"/>
                                 <state key="normal" title="确定"/>
+                                <connections>
+                                    <action selector="okTapped:" destination="jSV-cp-kQw" eventType="touchUpInside" id="80T-le-vWb"/>
+                                    <segue destination="p0x-J5-abJ" kind="unwind" unwindAction="close:" id="Koc-vC-g32"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,8 +190,17 @@
                             <constraint firstItem="SEe-yu-AwC" firstAttribute="top" secondItem="Nxs-c3-XTb" secondAttribute="top" id="zmj-dq-Bgg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="childButton" destination="7AW-ov-SEH" id="ADN-fy-pEF"/>
+                        <outlet property="phoneButton" destination="GFx-R4-f3Z" id="0Ty-Ed-rM3"/>
+                        <outlet property="shoppingCartButton" destination="SEe-yu-AwC" id="QVH-i7-iJF"/>
+                        <outlet property="todoDate" destination="PW7-Hw-Bcc" id="b50-qN-3eX"/>
+                        <outlet property="todoItem" destination="YD6-OO-BOH" id="7hm-pw-kdR"/>
+                        <outlet property="travelButton" destination="Nxs-c3-XTb" id="yXT-yq-Kng"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBH-CM-lFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="p0x-J5-abJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1918" y="368"/>
         </scene>
@@ -198,7 +227,10 @@
         <image name="child" width="50" height="50"/>
         <image name="child-selected" width="50" height="50"/>
         <image name="phone" width="50" height="50"/>
+        <image name="phone-selected" width="50" height="50"/>
         <image name="shopping-cart" width="50" height="50"/>
+        <image name="shopping-cart-selected" width="50" height="50"/>
         <image name="travel" width="50" height="50"/>
+        <image name="travel-selected" width="50" height="50"/>
     </resources>
 </document>
