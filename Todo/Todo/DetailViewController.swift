@@ -18,9 +18,34 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var todoItem: UITextField!
     @IBOutlet weak var todoDate: UIDatePicker!
 
+    var todo: TodoModel?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         todoItem.delegate = self
+
+        if let todoData = todo {
+            navigationController?.title = "修改Todo"
+
+            switch todoData.image {
+            case "child-selected":
+                childButton.selected = true
+            case "phone-selected":
+                phoneButton.selected = true
+            case "shopping-cart-selected":
+                shoppingCartButton.selected = true
+            case "travel-selected":
+                travelButton.selected = true
+            default:
+                resetButtons()
+            }
+
+            todoItem.text = todoData.title
+            todoDate.date = todoData.date
+        } else {
+            childButton.selected = true
+            navigationController?.title = "新增Todo"
+        }
     }
 
     @IBAction func childTapped(sender: AnyObject) {
@@ -60,10 +85,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func okTapped(sender: AnyObject) {
-        let imageName = getImageName()
-        let id = getId()
-        let todo = TodoModel(id: id, image: imageName!, title: todoItem.text!, date: todoDate.date)
-        todos.append(todo)
+        if todo == nil {
+            let imageName = getImageName()
+            let id = getId()
+            let todo = TodoModel(id: id, image: imageName!, title: todoItem.text!, date: todoDate.date)
+            todos.append(todo)
+        } else {
+            todo?.image = getImageName()!
+            todo?.title = todoItem.text!
+            todo?.date = todoDate.date
+        }
     }
 
     func getImageName() -> String? {

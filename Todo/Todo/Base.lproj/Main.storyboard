@@ -47,6 +47,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jSV-cp-kQw" kind="show" identifier="EditTodo" id="Rxm-sC-fL1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -233,4 +236,7 @@
         <image name="travel" width="50" height="50"/>
         <image name="travel-selected" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rxm-sC-fL1"/>
+    </inferredMetricsTieBreakers>
 </document>
