@@ -27,6 +27,9 @@
 		43B977561C7573FC00DDA67C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43B977581C7573FC00DDA67C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43B9775E1C75A33300DDA67C /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
+		43F6067C1CB7C4D4004BA27E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		43F6067D1CB7C5CE004BA27E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		43F6067E1CB7C5CE004BA27E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DFD3A4281C84A0E900FA4C88 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +163,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				43B977511C7573FC00DDA67C /* Base */,
+				43F6067C1CB7C4D4004BA27E /* en */,
+				43F6067D1CB7C5CE004BA27E /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				43B977561C7573FC00DDA67C /* Base */,
+				43F6067E1CB7C5CE004BA27E /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
