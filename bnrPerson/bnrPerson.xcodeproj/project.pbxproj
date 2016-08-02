@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4344FFA31D508F7C00471AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4344FFA21D508F7C00471AD0 /* main.m */; };
 		4344FFAB1D508F9100471AD0 /* BNRPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4344FFAA1D508F9100471AD0 /* BNRPerson.m */; };
+		4344FFAE1D509AAE00471AD0 /* BNREmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 4344FFAD1D509AAE00471AD0 /* BNREmployee.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		4344FFA21D508F7C00471AD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4344FFA91D508F9100471AD0 /* BNRPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRPerson.h; sourceTree = "<group>"; };
 		4344FFAA1D508F9100471AD0 /* BNRPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRPerson.m; sourceTree = "<group>"; };
+		4344FFAC1D509AAE00471AD0 /* BNREmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNREmployee.h; sourceTree = "<group>"; };
+		4344FFAD1D509AAE00471AD0 /* BNREmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNREmployee.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				4344FFA21D508F7C00471AD0 /* main.m */,
 				4344FFA91D508F9100471AD0 /* BNRPerson.h */,
 				4344FFAA1D508F9100471AD0 /* BNRPerson.m */,
+				4344FFAC1D509AAE00471AD0 /* BNREmployee.h */,
+				4344FFAD1D509AAE00471AD0 /* BNREmployee.m */,
 			);
 			path = bnrPerson;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4344FFAE1D509AAE00471AD0 /* BNREmployee.m in Sources */,
 				4344FFA31D508F7C00471AD0 /* main.m in Sources */,
 				4344FFAB1D508F9100471AD0 /* BNRPerson.m in Sources */,
 			);
