@@ -10,6 +10,10 @@
 
 @implementation BNREmployee
 
+- (float)bodyMassIndex {
+    return [super bodyMassIndex] * 0.9;
+}
+
 - (double)yearsOfEmployment {
     if (self.hireDate) {
         NSDate *now = [NSDate date];
@@ -19,6 +23,10 @@
     } else {
         return 0;
     }
+}
+
+- (NSString *) description {
+    return [NSString stringWithFormat:@"<employeeId=%u", self.employeeId];
 }
 
 @end
