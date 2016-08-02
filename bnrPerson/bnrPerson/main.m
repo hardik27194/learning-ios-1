@@ -12,11 +12,15 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         BNRPerson *food = [[BNRPerson alloc] init];
-        [food setWeightInKilos:65];
-        [food setHeightInMeters:1.84];
+//        [food setWeightInKilos:65];
+//        [food setHeightInMeters:1.84];
+        food.weightInKilos = 65;
+        food.heightInMeters = 1.84;
 
-        float height = [food heightInMeters];
-        int weight = [food weightInKilos];
+//        float height = [food heightInMeters];
+//        int weight = [food weightInKilos];
+        float height = food.heightInMeters;
+        int weight = food.weightInKilos;
         NSLog(@"food is %.2f meters tall and weights %d kilograms.", height, weight);
 
         float bmi = [food bodyMassIndex];
