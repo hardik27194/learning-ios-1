@@ -13,7 +13,7 @@
 @interface Child : NSObject
 
 @property int objId;
-@property Parent *parent;
+@property (weak) Parent *parent;
 
 - (instancetype)initWithId:(int)objId;
 
