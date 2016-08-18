@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 
         // 第二步：把NSData写入文件。
         NSString *filePath = @"/tmp/google.png";
-        BOOL success = [data writeToFile:filePath options:0 error:&error];
+        BOOL success = [data writeToFile:filePath options:NSDataWritingAtomic error:&error];
         if (success) {
             NSLog(@"Done writing %@", filePath);
             return 0;
