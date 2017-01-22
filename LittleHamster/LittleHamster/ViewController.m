@@ -62,8 +62,7 @@
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:now];
     NSDate *startDate = [calendar dateFromComponents:components];
     NSDate *endDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
-    HKSampleType *sampleType = [HKSampleType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed];
-    NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:endDate options:HKQueryOptionNone];
+    NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:endDate options:HKQueryOptionStrictStartDate];
     return predicate;
 }
 
@@ -71,31 +70,13 @@
     NSLog(@"readStepsCount");
     HKQuantityType *stepsCount = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     NSPredicate *predicate = [self createPredicate];
-    HKSampleQuery *sampleQuery = [[HKSampleQuery alloc] initWithSampleType:stepsCount predicate:predicate limit:HKObjectQueryNoLimit sortDescriptors:nil resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
-        if (results != nil && results.count > 0) {
-//            NSLog(@"result count: %ld, result: %@", results.count, results);
-//            HKQuantitySample *result = results[0];
-//            HKQuantity *quantity = result.quantity;
-//            NSString *stepStr = (NSString *)quantity;
-//            int totalSteps = 0;
-//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//                NSLog(@"最新步数：%@", stepStr);
-//            }];
-
-            double stepsCountToday = 0;
-            for (HKQuantitySample *result in results) {
-                NSLog(@"%@", result);
-                HKQuantity *quantity = result.quantity;
-                stepsCountToday += [quantity doubleValueForUnit:[HKUnit countUnit]];
-            }
-
-            NSString *stepsStr = [NSString stringWithFormat:@"%d", (int)stepsCountToday];
-            self.stepsCountLabel.text = stepsStr;
-        } else {
-            NSLog(@"未能读取步数");
+    HKStatisticsQuery *query = [[HKStatisticsQuery alloc] initWithQuantityType:stepsCount quantitySamplePredicate:predicate options:HKStatisticsOptionCumulativeSum completionHandler:^(HKStatisticsQuery * _Nonnull query, HKStatistics * _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            double totalSteps = [result.sumQuantity doubleValueForUnit:[HKUnit countUnit]];
+            self.stepsCountLabel.text = [NSString stringWithFormat:@"%d", (int)totalSteps];
         }
     }];
-    [self.healthStore executeQuery:sampleQuery];
+    [self.healthStore executeQuery:query];
 }
 
 - (IBAction)writeStepsCount:(id)sender {

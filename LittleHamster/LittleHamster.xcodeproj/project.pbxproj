@@ -331,6 +331,7 @@
 				43FAE7A11E34AD07003DB3B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
