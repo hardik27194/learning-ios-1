@@ -107,8 +107,11 @@
 }
 
 - (IBAction)writeStepsCount:(id)sender {
-    [self setAllButtonsEnabled:NO];
-    [self addStepsCount:1];
+    int stepsToAdd = (int)[self.stepsCountInputter.text doubleValue];
+    if (stepsToAdd > 0) {
+        [self setAllButtonsEnabled:NO];
+        [self addStepsCount:stepsToAdd];
+    }
 }
 
 - (void)addStepsCount:(int)steps {
@@ -123,9 +126,6 @@
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.stepsCountInputter resignFirstResponder];
-    NSLog(@"%@", self.stepsCountInputter.text);
-    double stepsToAdd = [self.stepsCountInputter.text doubleValue];
-    NSLog(@"%d", (int)stepsToAdd);
 }
 
 @end
