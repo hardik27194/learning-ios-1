@@ -44,11 +44,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入要增加的步数" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eN-j3-hzP">
+                                <rect key="frame" x="216" y="329" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="readerButton" destination="mI5-qq-1Wn" id="m3m-0y-5zp"/>
                         <outlet property="stepsCountLabel" destination="vXL-k8-qls" id="l1D-88-wgM"/>
+                        <outlet property="writterButton" destination="bw9-FA-Evy" id="vkV-oN-9pw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

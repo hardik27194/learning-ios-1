@@ -12,6 +12,9 @@
 @interface ViewController ()
 
 @property HKHealthStore *healthStore;
+@property HKQuantityType *stepsCountType;
+@property (weak, nonatomic) IBOutlet UIButton *readerButton;
+@property (weak, nonatomic) IBOutlet UIButton *writterButton;
 @property (weak, nonatomic) IBOutlet UILabel *stepsCountLabel;
 
 @end
@@ -22,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    self.stepsCountType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     self.stepsCountLabel.text = 0;
 
     if ([HKHealthStore isHealthDataAvailable]) {
@@ -33,7 +37,7 @@
         exit(0);
     }
 
-    [self requestAuthorization];
+    [self requestAuthorizationForStepsCount];
 }
 
 
@@ -42,18 +46,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)requestAuthorization {
-    HKQuantityType *stepsCount = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    NSSet<HKSampleType *> *shareTypes = [NSSet setWithObject:stepsCount];
-    NSSet<HKQuantityType *> *readTypes = [NSSet setWithObject:stepsCount];
+- (void)requestAuthorizationForStepsCount {
+    NSSet<HKSampleType *> *shareTypes = [NSSet setWithObject:self.stepsCountType];
+    NSSet<HKQuantityType *> *readTypes = [NSSet setWithObject:self.stepsCountType];
 
     [self.healthStore requestAuthorizationToShareTypes:shareTypes readTypes:readTypes completion:^(BOOL success, NSError * _Nullable error) {
         if (success) {
             NSLog(@"成功获得HealthKit读写权限");
         } else {
             NSLog(@"未获得HealthKit读写权限");
+            exit(0);
         }
     }];
+}
+
+- (IBAction)readStepsCount:(id)sender {
+    [self setAllButtonsEnabled:NO];
+    
+    NSPredicate *predicate = [self createPredicate];
+    HKStatisticsQuery *statisticsQuery = [[HKStatisticsQuery alloc] initWithQuantityType:self.stepsCountType quantitySamplePredicate:predicate options:HKStatisticsOptionCumulativeSum completionHandler:^(HKStatisticsQuery * _Nonnull query, HKStatistics * _Nullable result, NSError * _Nullable error) {
+        if (result) {
+            double totalSteps = [result.sumQuantity doubleValueForUnit:[HKUnit countUnit]];
+            self.stepsCountLabel.text = [NSString stringWithFormat:@"%d", (int)totalSteps];
+        }
+        
+        [self setAllButtonsEnabled:YES];
+    }];
+    
+    [self.healthStore executeQuery:statisticsQuery];
+}
+
+- (void)setAllButtonsEnabled:(BOOL)enabled {
+    [self.readerButton setEnabled:enabled];
+    [self.writterButton setEnabled:enabled];
 }
 
 - (NSPredicate *)createPredicate {
@@ -66,20 +91,19 @@
     return predicate;
 }
 
-- (IBAction)readStepsCount:(id)sender {
-    NSLog(@"readStepsCount");
-    HKQuantityType *stepsCount = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    NSPredicate *predicate = [self createPredicate];
-    HKStatisticsQuery *query = [[HKStatisticsQuery alloc] initWithQuantityType:stepsCount quantitySamplePredicate:predicate options:HKStatisticsOptionCumulativeSum completionHandler:^(HKStatisticsQuery * _Nonnull query, HKStatistics * _Nullable result, NSError * _Nullable error) {
-        if (result) {
-            double totalSteps = [result.sumQuantity doubleValueForUnit:[HKUnit countUnit]];
-            self.stepsCountLabel.text = [NSString stringWithFormat:@"%d", (int)totalSteps];
-        }
-    }];
-    [self.healthStore executeQuery:query];
+- (IBAction)writeStepsCount:(id)sender {
+    [self setAllButtonsEnabled:NO];
+    [self addStepsCount:1];
 }
 
-- (IBAction)writeStepsCount:(id)sender {
+- (void)addStepsCount:(int)steps {
+    HKQuantity *stepsQuantity = [HKQuantity quantityWithUnit:[HKUnit countUnit] doubleValue:steps];
+    HKQuantitySample *stepsQuantitySampel = [HKQuantitySample quantitySampleWithType:self.stepsCountType quantity:stepsQuantity startDate:[NSDate date] endDate:[NSDate date]];
+    [self.healthStore saveObject:stepsQuantitySampel withCompletion:^(BOOL success, NSError * _Nullable error) {
+        if (success) {
+            [self readStepsCount:nil];
+        }
+    }];
 }
 
 
