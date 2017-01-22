@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *stepsCountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *stepsCountInputter;
 @property (weak, nonatomic) IBOutlet UIButton *writterButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *waitIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *waitLabel;
 
 @end
 
@@ -65,7 +67,7 @@
 
     [self.healthStore requestAuthorizationToShareTypes:shareTypes readTypes:readTypes completion:^(BOOL success, NSError * _Nullable error) {
         if (success) {
-            [self readStepsCount];
+            [self readStepsCount:YES];
         } else {
             NSString *title = @"提醒";
             NSString *message = @"未能获得HealthKit权限，无法使用此应用。请按“确定”来退出。";
@@ -74,8 +76,11 @@
     }];
 }
 
-- (void)readStepsCount {
-    [self setAllButtonsEnabled:NO];
+- (void)readStepsCount:(BOOL)showWaitIndicator {
+    [self enableUserInput:NO];
+    if (showWaitIndicator) {
+        [self showWaitIndicatorAndLabel:YES];
+    }
     
     NSPredicate *predicate = [self createPredicate];
     HKStatisticsQuery *statisticsQuery = [[HKStatisticsQuery alloc] initWithQuantityType:self.stepsCountType quantitySamplePredicate:predicate options:HKStatisticsOptionCumulativeSum completionHandler:^(HKStatisticsQuery * _Nonnull query, HKStatistics * _Nullable result, NSError * _Nullable error) {
@@ -84,16 +89,33 @@
             self.stepsCountLabel.text = [NSString stringWithFormat:@"%d", (int)totalSteps];
         }
         
-        [self setAllButtonsEnabled:YES];
+        [self showWaitIndicatorAndLabel:NO];
+        [self enableUserInput:YES];
     }];
     
     [self.healthStore executeQuery:statisticsQuery];
 }
 
-- (void)setAllButtonsEnabled:(BOOL)enabled {
-    [self.stepsCountLabel setEnabled:enabled];
+- (void)enableUserInput:(BOOL)enabled {
     [self.stepsCountInputter setEnabled:enabled];
     [self.writterButton setEnabled:enabled];
+}
+
+- (void)showWaitIndicatorAndLabel:(BOOL)show {
+    if (show) {
+        [self.waitLabel setHidden:NO];
+        
+        if ([self.waitIndicator isAnimating]) {
+            [self.waitIndicator stopAnimating];
+        }
+        [self.waitIndicator startAnimating];
+    } else {
+        [self.waitLabel setHidden:YES];
+        
+        if ([self.waitIndicator isAnimating]) {
+            [self.waitIndicator stopAnimating];
+        }
+    }
 }
 
 - (NSPredicate *)createPredicate {
@@ -109,7 +131,10 @@
 - (IBAction)writeStepsCount:(id)sender {
     int stepsToAdd = (int)[self.stepsCountInputter.text doubleValue];
     if (stepsToAdd > 0) {
-        [self setAllButtonsEnabled:NO];
+        [self enableUserInput:NO];
+        self.waitLabel.text = @"正在写入数据……";
+        [self showWaitIndicatorAndLabel:YES];
+        
         [self addStepsCount:stepsToAdd];
     }
 }
@@ -119,7 +144,10 @@
     HKQuantitySample *stepsQuantitySampel = [HKQuantitySample quantitySampleWithType:self.stepsCountType quantity:stepsQuantity startDate:[NSDate date] endDate:[NSDate date]];
     [self.healthStore saveObject:stepsQuantitySampel withCompletion:^(BOOL success, NSError * _Nullable error) {
         if (success) {
-            [self readStepsCount];
+            [self readStepsCount:NO];
+        } else {
+            [self showWaitIndicatorAndLabel:NO];
+            [self enableUserInput:YES];
         }
     }];
 }
