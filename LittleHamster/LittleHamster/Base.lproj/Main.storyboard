@@ -21,41 +21,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI5-qq-1Wn">
-                                <rect key="frame" x="146" y="244" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="读取步数"/>
-                                <connections>
-                                    <action selector="readStepsCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YL3-qv-Jbo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-FA-Evy">
-                                <rect key="frame" x="146" y="328" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="写入步数"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在读取……" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXL-k8-qls">
+                                <rect key="frame" x="50" y="176" width="275.5" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="请输入增加的步数" borderStyle="roundedRect" placeholder="请输入要增加的步数" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eN-j3-hzP">
+                                <rect key="frame" x="85.5" y="316" width="204.5" height="30"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日步数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-Hu-5L2">
+                                <rect key="frame" x="127" y="120" width="121.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw9-FA-Evy">
+                                <rect key="frame" x="136" y="366" width="102" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="新增步数"/>
                                 <connections>
                                     <action selector="writeStepsCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bxf-aH-7XR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日总步数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXL-k8-qls">
-                                <rect key="frame" x="134" y="282" width="87" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入要增加的步数" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2eN-j3-hzP">
-                                <rect key="frame" x="216" y="329" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.38039215686274508" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vXL-k8-qls" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3F2-ah-f1I"/>
+                            <constraint firstItem="bw9-FA-Evy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6sB-rm-Fas"/>
+                            <constraint firstItem="Bb8-Hu-5L2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IvO-XS-g82"/>
+                            <constraint firstItem="bw9-FA-Evy" firstAttribute="top" secondItem="2eN-j3-hzP" secondAttribute="bottom" constant="20" id="L7g-We-7GW"/>
+                            <constraint firstItem="2eN-j3-hzP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MD5-Xy-9zu"/>
+                            <constraint firstItem="2eN-j3-hzP" firstAttribute="top" secondItem="vXL-k8-qls" secondAttribute="bottom" constant="80" id="fnX-hD-Vim"/>
+                            <constraint firstItem="vXL-k8-qls" firstAttribute="top" secondItem="Bb8-Hu-5L2" secondAttribute="bottom" constant="20" id="m82-SA-VZa"/>
+                            <constraint firstItem="Bb8-Hu-5L2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="tbA-Df-YwA"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="readerButton" destination="mI5-qq-1Wn" id="m3m-0y-5zp"/>
                         <outlet property="stepsCountInputter" destination="2eN-j3-hzP" id="Ogk-wD-TrI"/>
                         <outlet property="stepsCountLabel" destination="vXL-k8-qls" id="l1D-88-wgM"/>
                         <outlet property="writterButton" destination="bw9-FA-Evy" id="vkV-oN-9pw"/>

@@ -13,10 +13,10 @@
 
 @property HKHealthStore *healthStore;
 @property HKQuantityType *stepsCountType;
-@property (weak, nonatomic) IBOutlet UIButton *readerButton;
-@property (weak, nonatomic) IBOutlet UIButton *writterButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *stepsCountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *stepsCountInputter;
+@property (weak, nonatomic) IBOutlet UIButton *writterButton;
 
 @end
 
@@ -27,17 +27,20 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     self.stepsCountType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-    self.stepsCountLabel.text = 0;
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     if ([HKHealthStore isHealthDataAvailable]) {
-        NSLog(@"该设备支持HealthKit");
         self.healthStore = [[HKHealthStore alloc] init];
     } else {
-        NSLog(@"该设备不支持HealthKit");
         self.healthStore = nil;
-        exit(0);
+        NSString *title = @"提醒";
+        NSString *message = @"您的设备不支持HealthKit，无法使用此应用。请按“确定”来退出。";
+        [self showAlertViewWithTitle:title message:message];
     }
-
+    
     [self requestAuthorizationForStepsCount];
 }
 
@@ -47,21 +50,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        exit(0);
+    }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 - (void)requestAuthorizationForStepsCount {
     NSSet<HKSampleType *> *shareTypes = [NSSet setWithObject:self.stepsCountType];
     NSSet<HKQuantityType *> *readTypes = [NSSet setWithObject:self.stepsCountType];
 
     [self.healthStore requestAuthorizationToShareTypes:shareTypes readTypes:readTypes completion:^(BOOL success, NSError * _Nullable error) {
         if (success) {
-            NSLog(@"成功获得HealthKit读写权限");
+            [self readStepsCount];
         } else {
-            NSLog(@"未获得HealthKit读写权限");
-            exit(0);
+            NSString *title = @"提醒";
+            NSString *message = @"未能获得HealthKit权限，无法使用此应用。请按“确定”来退出。";
+            [self showAlertViewWithTitle:title message:message];
         }
     }];
 }
 
-- (IBAction)readStepsCount:(id)sender {
+- (void)readStepsCount {
     [self setAllButtonsEnabled:NO];
     
     NSPredicate *predicate = [self createPredicate];
@@ -78,7 +91,8 @@
 }
 
 - (void)setAllButtonsEnabled:(BOOL)enabled {
-    [self.readerButton setEnabled:enabled];
+    [self.stepsCountLabel setEnabled:enabled];
+    [self.stepsCountInputter setEnabled:enabled];
     [self.writterButton setEnabled:enabled];
 }
 
@@ -102,7 +116,7 @@
     HKQuantitySample *stepsQuantitySampel = [HKQuantitySample quantitySampleWithType:self.stepsCountType quantity:stepsQuantity startDate:[NSDate date] endDate:[NSDate date]];
     [self.healthStore saveObject:stepsQuantitySampel withCompletion:^(BOOL success, NSError * _Nullable error) {
         if (success) {
-            [self readStepsCount:nil];
+            [self readStepsCount];
         }
     }];
 }
