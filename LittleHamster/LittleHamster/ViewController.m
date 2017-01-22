@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *readerButton;
 @property (weak, nonatomic) IBOutlet UIButton *writterButton;
 @property (weak, nonatomic) IBOutlet UILabel *stepsCountLabel;
+@property (weak, nonatomic) IBOutlet UITextField *stepsCountInputter;
 
 @end
 
@@ -106,5 +107,11 @@
     }];
 }
 
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.stepsCountInputter resignFirstResponder];
+    NSLog(@"%@", self.stepsCountInputter.text);
+    double stepsToAdd = [self.stepsCountInputter.text doubleValue];
+    NSLog(@"%d", (int)stepsToAdd);
+}
 
 @end
